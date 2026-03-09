@@ -1,0 +1,707 @@
+<!-- The originial version of this template was made by Johnathan Soma and then messed with and customized by Aaron Reiss -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: palevioletred;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      body {
+        background-color: #e8e5d8;
+        margin: 0;
+      }
+      .modal-content {
+        background: #e8e5d8;
+        padding: 2rem;
+        max-width: 400px;
+        border-radius: 8px;
+        text-align: center;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+      }
+
+      .modal button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+
+      h1{
+        max-width: 100%;
+        text-align: center;
+        margin: 4rem auto 2rem auto;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: bold;
+        font-size: 50px;  
+        background-color: black;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 15rem 0rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+      .title-header {
+  max-width: 100%;
+  text-align: center;
+  font-family: "source-serif-pro", serif;
+  background-color: #e8e5d8;
+  color: black;
+  margin: 0;
+  padding: 15rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title-main {
+  font-size: 60px;
+  font-weight: 400;
+}
+.title-sub {
+  font-size: 25px;
+  font-weight: 400;
+}
+      p{
+        max-width: 75%;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: normal;
+        margin: 0 auto 2rem auto;
+        font-size: 25px;
+      }
+      
+      #scrolly {
+        position: relative;
+        padding: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .scrolly-overlay {
+        position: relative;
+        padding: 0;
+        max-width: 35rem;
+        margin-left: 20px;
+        margin-right: auto;
+      }
+
+      .sticky-thing {
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        z-index: 0;
+        top: 0;
+        height: 100vh;
+        /* Center everything inside */
+        display: flex;
+        justify-content: right;
+        flex-direction: column;
+        justify-content: right;
+        margin-bottom: 0;
+      }
+
+      .step {
+        margin: 0 auto 2rem auto;
+        margin-bottom: 25rem;
+        background-color: transparent;
+        background-color: transparent;
+        color: black;
+        text-align: center;
+        border: 0px solid red;
+      }
+      #step23, #step2-3, #step2-4 {
+        margin-bottom: 0;
+      }
+      .intro {
+        max-width: 950px;
+        text-align: center;
+        background-color: #e8e5d8;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;  
+        padding: 1rem;
+      }
+      .part2 {
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: bold;
+        font-size: 50px;  
+        background-color: black;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 15rem 0rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+       .attempt {
+        max-width: 950px;
+        text-align: center;
+        background-color: #e8e5d8;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;  
+        padding: 1rem;
+      }
+      .header3 {
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+        font-family: "source-serif-pro", serif;
+        font-weight: 400;
+        font-style: bold;
+        font-size: 50px;  
+        background-color: black;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 15rem 0rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0 !important;
+      }
+.outro1, .outro2 {
+  max-width: 100%;
+  text-align: center;
+  background-color: #e8e5d8;
+  font-family: "source-serif-pro", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;  
+  margin: 0;
+  padding: 4rem 15%;
+      }
+      .step p {
+        padding: 1rem;
+        font-size: 1.25rem;
+        border: black;
+      }
+      .step2 {
+        margin: 0 auto 2rem auto;
+         margin-bottom: 25rem;  
+         background-color: transparent;
+         color: black;
+         text-align: left;
+         border: 0px solid red;
+      }
+      .step2 p {
+        padding: 1rem;
+        font-size: 1.25rem;
+      }
+
+      #zoomBox {
+          overflow: clip;    
+          margin-left: 0vw !important;
+          max-width: 100vw !important;
+          height: 100vh;      
+          display: flex;        
+          align-items: center;
+          -webkit-mask-image: linear-gradient(to right, transparent 30%, black 50%);
+          mask-image: linear-gradient(to right, transparent 30%, black 50%);      
+      }
+      #zoomBox2 {
+        overflow: clip;    
+        margin-left: 0 !important;
+        max-width: 100vw !important;
+        height: 100vh;          
+        display: flex;        
+        align-items: center;
+        -webkit-mask-image: linear-gradient(to right, transparent 30%, black 50%);
+        mask-image: linear-gradient(to right, transparent 30%, black 50%);
+      }
+      .photoDiv {
+        width: auto;
+        height: 100vh;
+        max-height: 100vh;   
+        object-fit: contain; 
+        margin-right: 0px;
+        margin-left: auto;
+        display: block;
+        transition:
+          margin 1.5s 0s,
+          transform 2.5s 0s;
+          transform-origin: right center;
+      }
+      
+
+      /* When it's less than 700 pixels wide, do normal scrollytelling */
+      @media only screen and (min-width: 700px) {
+        #scrolly.side-by-side {
+          display: flex;
+        }
+
+        #scrolly.side-by-side > div {
+          flex-basis: 0;
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding: 0.75em;
+        }
+
+        #scrolly.side-by-side .scrolly-overlay {
+          margin-top: 70vh;
+          order: 0;
+          /* Change these to adjust sizing options */
+          min-width: 15rem;
+          max-width: 20rem;
+        }
+
+        #scrolly.side-by-side .sticky-thing {
+          order: 1;
+          flex-grow: 2;
+        }
+      }
+    </style>
+		<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.0.4/scrollama.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+    <style>
+  @import url("https://use.typekit.net/fhn7ltr.css");
+</style>
+  </head>
+
+  <body>
+    <div class="title-header">
+  <span class="title-main">Place as Memory</span>
+  <br><br>
+  <span class="title-sub">by Ignacio Somoza</span>
+</div>s
+	<h1><span style=color:#e8e5d8>Part 1: What Does it Mean to Remember?</span></h1>
+  <p class="intro"><span style=color:#000000>Last year, my best friend Krish said to me:<br><br><br><br>
+
+“Next time we hang out, can it be in a new place?”<br><br><br><br>
+
+“Why?” I asked.<br><br><br><br>
+
+“When you continuously create memories in a single space, they all blend together, and it's difficult to remember what happened or when they happened.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+I don't remember when or where we had this conversation.</span><br><br><br><br></p>
+</p>
+<p class="part2"><span style=color:#e8e5d8>Part 2: Blurred Memory</span>
+</p>
+<p class="attempt"><br><br><br><br>What does it mean to remember a moment?<br><br><br><br>
+
+Can you replay it in your head? Associate it with a sound or smell? Remember where and when it was?<br><br><br>
+      </p>
+      <section id="scrolly">
+        <div class="sticky-thing">
+          <div id="zoomBox">
+<!-- Sticky Thing 1 goes below this line -->
+            <img id="scrollyPhoto" class="photoDiv" src="images/onlyldub.jpg">
+<!-- Sticky Thing 1 goes above this line -->
+          </div>        
+        </div>
+        <div class="scrolly-overlay">
+          <div class="step" id="step1">
+            <p>Take my first-year dorm as an example - Lanman-Wright A51.</p>
+             <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>I  remember hosting Moe's birthday party, one week after my room's hangout on MLK day accidentally turned into a full blown house party that lasted hours. Or was the birthday party before? I remember late-night wine-driven conversations with Michelle and Mel under the red LED strip lights that I loved so much. Or was it with someone else? They were definitely there, but which time?
+     <br><br><br><br><br>  </p>
+          </div>
+        <div class="step" id="step2">
+            <p>While always stopping in C22 to drop off packages,</p>
+          </div>
+          <div class="step" id="step3">
+            <p>or F11, before going up to my dorm,<br><br>(for the sake of not having to walk up five flights of stairs)</p>
+          </div>
+           <div class="step" id="step4">
+            <p>or walking across the hall to B51 every night, </p>
+        </div>
+        <div class="step" id="step5">
+            <p>so many memories were created, photos taken, songs listened to - but it's all the same to me now.</p>
+        </div>
+        <div class="step" id="step6">
+            <p>Countless nights spent at friends’ places, countless Mario Kart games played, gibberish said, memories made. </p>
+        </div>
+        <div class="step" id="step7">
+            <p>Places around campus, taking up space in my mind.</p>
+        </div>
+        <div class="step" id="step8">
+            <p>And yet, I can't remember them unless I look at the timestamp in my camera roll.</p>
+        </div>
+          <div class="step" id="step9">
+            <p>On the contrary, some locations are deeply ingrained in my head.</p>
+        </div>
+         <div class="step" id="step10">
+          <p></p>
+        </div>
+          <div class="step" id="step11">
+            <p> </p>
+        </div>
+          <div class="step" id="step12">
+            <p> </p>
+        </div>
+          <div class="step" id="step13">
+            <p> </p>
+        </div>
+          <div class="step" id="step14">
+            <p> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+        </div>
+         <div class="step" id="step15">
+            <p>Memory, of course, is not just limited to houses and dorm buildings.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+        </div>
+            <div class="step" id="step16">
+            <p>Repeated interactions and daily routines have faded into the background.</p>
+        </div>
+        <div class="step" id="step17">
+            <p>Some memories linger, and themes emerge as memory is tied into place.</p>
+        </div>
+        <div class="step" id="step18">
+            <p>Places for <span style="color:#5480ea">first times,</span></p>
+        </div>
+        <div class="step" id="step19">
+            <p>Places where <span style=color:#ff69d8>fun moments</span> happened,</p>
+        </div>
+        <div class="step" id="step20">
+            <p>and got <span style=color:#ff0000>written over</span>,</p>
+        </div>
+        <div class="step" id="step21">
+            <p>Places where <span style=color:#ff7c48>something meaningful</span> occured,</p>
+        </div>
+        <div class="step" id="step22">
+            <p>And of course, <span style=color:#6ed868>food-related</span> times.</p>
+        </div>
+        <div class="step" id="step23" data-scrollama-offset="0.10">
+            <p>As I go through my life, different spots on the map are embedded with my most salient memories.</p>
+        </div>
+        <div style="height: 60vh;"></div>
+       </section>
+
+<div class="header3"><span style=color:#e8e5d8>Part 3: The Tower</span></div>
+
+<!-- Narrative text -->
+<div class="outro1">
+<p>In January of 2025, a few weeks after meeting through a mutual friend's winter break Minecraft server (the infamous two-week phase), Krish and I gave each other our hometowns late at night in a classroom on the sixth floor of Kline Tower. </p></div>
+<!-- NEW second scrolly section -->
+<section id="scrolly2">
+  <div class="sticky-thing">
+    <div id="zoomBox2">
+      <img id="scrollyPhoto2" class="photoDiv" src="images/mouse2.jpg">
+    </div>
+  </div>
+  <div class="scrolly-overlay">
+    <div class="step2" id="step2-1">
+      <p>Maps, timelines, word webs, and diagrams were drawn on all eight chalkboards of the room as we told our life stories in depth for six hours <u>each.</u></p>
+    </div>
+    <div class="step2" id="step2-2">
+      <p>This must be what he was talking about when he said we should create memories in new places. The reason I hold this memory so dearly in my heart is because of the new conditions it was created in and the untouched state it will stay in..</p>
+    </div>
+        <div class="step2" id="step2-3">
+      <p>When you spend four years of your life almost entirely contained within the same few blocks and buildings, the memories pile up and turn into a blur.</p>
+    </div>
+    <div class="step2" id="step2-4" data-scrollama-offset="0.10">
+      <p>The days blend together.</p>
+   </div>
+    <div style="height: 60vh;"></div>
+  </div>
+</section>
+
+<!-- Back to narrative -->
+<div class="outro2">
+  <p>You leave little pieces of your life all around you. In the end, it's those one-off moments in new and far away places that are most salient in your mind.<br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  While Kline Tower is riddled with memories of math classes, waiting in the line at the cafe, and my trek up to Russian every morning, the 6th floor will always belong to Krish and I.
+  
+  </p>
+</div>
+    <!-- Mobile Warning Modal -->
+    <div id="deviceModal" class="modal">
+      <div class="modal-content">
+        <span>
+          Wow! One of your friends must be in Aaron Reiss's "Telling Stories With Maps" class — how cool! <br><br> Sadly, this site is meant to be viewed on a computer, so if you are on a phone or tablet then it's gonna look all kinds of wonky and you might get the wrong impression about how amazing this work is.
+        </span>
+        <button id="continueBtn">Continue Anyway</button>
+      </div>
+    </div>
+
+<script>
+    d3.select("#scrollyPhoto").style("transform", "translateX(20%)");
+/* Scrollytelling code goes under here */
+
+  // Code for the Photo Div #1 (aka #scrollyPhoto1)
+    
+    // Entering Step One
+    d3.select("#step1").on('stepin',function(e) {
+    console.log("We've arrived at STEP ONE in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/ldub1.jpg");
+    d3.select("body").style("background-color", "#e8e5d8");
+    d3.select("#scrollyPhoto").style("transform", "scale(3.0) translate(40%, -10%)");
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+    // Back to Null
+    d3.select("#step1").on('stepout', function(e) {
+    if (e.detail.direction === 'up') {
+    d3.select("#scrollyPhoto").attr("src", "images/onlyldub.jpg");
+    console.log("We've gone back to the original photo in the photo div")
+    d3.select("#scrollyPhoto").style("transform", "scale(1) translate(0%, 0%)");
+    }
+})
+    })
+    // Entering Step Two
+    d3.select("#step2").on('stepin',function(e) {
+    console.log("We've arrived at STEP TWO in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/ldub2.jpg");
+    d3.select("#scrollyPhoto").style("transform", "scale(3.0) translate(40%, -10%)");
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+  })
+    // Entering Step Three
+    d3.select("#step3").on('stepin',function(e) {
+    console.log("We've arrived at STEP Three in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/ldub3.jpg");
+    d3.select("#scrollyPhoto").style("transform", "scale(3.0) translate(40%, -10%)");
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+  })
+    // Entering Step Four
+    d3.select("#step4").on('stepin',function(e) {
+    console.log("We've arrived at STEP Four in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/ldub4.jpg");
+    d3.select("#scrollyPhoto").style("transform", "scale(3.0) translate(40%, -10%)");
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+    })
+        // Entering Step Five
+    d3.select("#step5").on('stepin',function(e) {
+    console.log("We've arrived at STEP Five in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/ldub5.jpg");
+    d3.select("#scrollyPhoto").style("transform-origin", "right center");
+    d3.select("#scrollyPhoto").style("transform", "scale(3.0) translate(40%, -10%)");
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+    })
+        // Entering Step Six
+    d3.select("#step6").on('stepin', function(e) {
+    console.log("We've arrived at STEP Six in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/extended1.jpg");
+    d3.select("#scrollyPhoto").style("object-fit", "contain");
+    d3.select("#scrollyPhoto").style("transform", "scale(1) translate(0%, 0%)");
+        // Leaving Step Six
+    d3.select("#step6").on('stepout', function(e) {
+    if (e.detail.direction === 'up') {
+    d3.select("#scrollyPhoto").attr("src", "images/ldub5.jpg");
+    console.log("We've gone back to step five in the photo div")
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+    d3.select("#scrollyPhoto").style("transform-origin", "right center");
+    d3.select("#scrollyPhoto").style("transform", "scale(3.0) translate(40%, -10%)");
+    }
+})
+})
+    // Entering Step Seven
+    d3.select("#step7").on('stepin', function(e) {
+    console.log("We've arrived at STEP Seven in the photo div")
+    d3.select("body").style("background-color", "#a6a4a7");
+    d3.select("#scrollyPhoto").style("object-fit", "contain");
+    d3.select("#scrollyPhoto").attr("src", "images/extended2.jpg");
+            // Leaving Step Seven
+    d3.select("#step7").on('stepout', function(e) {
+    if (e.detail.direction === 'up') {
+    d3.select("#scrollyPhoto").attr("src", "images/extended1.jpg");
+    console.log("We've gone back to step six in the photo div")
+    d3.select("#scrollyPhoto").style("object-fit", "cover");
+    d3.select("body").style("background-color", "#e8e5d8");
+    d3.select("#scrollyPhoto").style("transform-origin", "right center");
+    }
+})
+})
+    // Entering Step Eight
+    d3.select("#step8").on('stepin', function(e) {
+    console.log("We've arrived at STEP Eight in the photo div")
+    d3.select("body").style("background-color", "#7b7986");
+    d3.select("#scrollyPhoto").style("object-fit", "contain");
+    d3.select("#scrollyPhoto").attr("src", "images/extended3_50%.jpg");
+})
+    // Entering Step Nine
+    d3.select("#step9").on('stepin', function(e) {
+    console.log("We've arrived at STEP Nine in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/anno1.jpg");
+})
+    // Entering Step Ten
+    d3.select("#step10").on('stepin', function(e) {
+    console.log("We've arrived at STEP Ten in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/anno2.jpg");
+})
+    // Entering Step Eleven
+    d3.select("#step11").on('stepin', function(e) {
+    console.log("We've arrived at STEP Eleven in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/anno3.jpg");
+})
+    // Entering Step Twelve
+    d3.select("#step12").on('stepin', function(e) {
+    console.log("We've arrived at STEP Thirteen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/anno4.jpg");
+})
+    // Entering Step Thirteen
+    d3.select("#step13").on('stepin', function(e) {
+    console.log("We've arrived at STEP Thirteen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/anno5.jpg");
+})
+    // Entering Step Fourteen
+    d3.select("#step14").on('stepin', function(e) {
+    console.log("We've arrived at STEP Fourteen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/anno6.jpg");
+})
+    // Entering Step Fifteen
+    d3.select("#step15").on('stepin', function(e) {
+    console.log("We've arrived at STEP Fourteen in the photo div")
+    d3.select("body").style("background-color", "white");
+    d3.select("#scrollyPhoto").attr("src", "images/fadefade0.jpg");
+            // Leaving Step Fifteen
+    d3.select("#step15").on('stepout', function(e) {
+    if (e.detail.direction === 'up') {
+    d3.select("#scrollyPhoto").attr("src", "images/anno6.jpg");
+    console.log("We've gone back to step five in the photo div")
+    d3.select("body").style("background-color", "#7b7986");
+    }
+})
+})
+    // Entering Step Sixteen
+    d3.select("#step16").on('stepin', function(e) {
+    console.log("We've arrived at STEP Fourteen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/fadefade.jpg");
+})
+    // Entering Step Seventeen
+    d3.select("#step17").on('stepin', function(e) {
+    console.log("We've arrived at STEP Seventeen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/fadefade1.jpg");
+})
+    // Entering Step Eighteen
+    d3.select("#step18").on('stepin', function(e) {
+    console.log("We've arrived at STEP Eighteen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/love1.jpg");
+})
+    // Entering Step Nineteen
+    d3.select("#step19").on('stepin', function(e) {
+    console.log("We've arrived at STEP Nineteen in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/love2.jpg");
+})
+    // Entering Step Twenty
+    d3.select("#step20").on('stepin', function(e) {
+    console.log("We've arrived at STEP Twenty in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/love3.jpg");
+})
+    // Entering Step Twenty-One
+    d3.select("#step21").on('stepin', function(e) {
+    console.log("We've arrived at STEP Twenty-One in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/love4.jpg");
+})
+    // Entering Step Twenty-Two
+    d3.select("#step22").on('stepin', function(e) {
+    console.log("We've arrived at STEP Twenty-Two in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/love5.jpg");
+})
+    // Entering Step Twenty-Three
+    d3.select("#step23").on('stepin', function(e) {
+    console.log("We've arrived at STEP Twenty-Three in the photo div")
+    d3.select("#scrollyPhoto").attr("src", "images/love9.jpg");
+    d3.select("body").style("background-color", "#e8e5d8");
+                // Leaving Step Twenty-Three
+    d3.select("#step23").on('stepout', function(e) {
+    if (e.detail.direction === 'up') {
+    d3.select("#scrollyPhoto").attr("src", "images/love5.jpg");
+    console.log("We've gone back to step five in the photo div")
+    d3.select("body").style("background-color", "white");
+    }
+})
+})
+</script>
+
+
+
+<!-- LEAVE ALONE, scrolly code goes in the section below -->
+<script>
+    const scroller = scrollama();
+
+scroller
+    .setup({
+        step: "#scrolly .scrolly-overlay .step",
+        offset: 0.60,
+        debug: false
+    })
+		.onStepEnter(function({ element, index, direction}) {
+			const event = new CustomEvent('stepin', { detail: { direction: direction } })
+			element.dispatchEvent(event);
+		})
+		.onStepExit(function({ element, index, direction }) {
+			const event = new CustomEvent('stepout', { detail: { direction: direction } })
+			element.dispatchEvent(event);
+		});
+
+	window.addEventListener("resize", scroller.resize);
+
+  // Second scrolly instance
+const scroller2 = scrollama();
+
+scroller2.setup({
+    step: "#scrolly2 .scrolly-overlay .step2",
+    offset: 0.60,
+    debug: false
+})
+.onStepEnter(function({ element, index, direction }) {
+    const event = new CustomEvent('stepin', { detail: { direction: direction } })
+    element.dispatchEvent(event);
+})
+.onStepExit(function({ element, index, direction }) {
+    const event = new CustomEvent('stepout', { detail: { direction: direction } })
+    element.dispatchEvent(event);
+});
+
+window.addEventListener("resize", scroller2.resize);
+
+// Step listeners for second scrolly
+d3.select("#step2-1").on('stepin', function(e) {
+    d3.select("#scrollyPhoto2").attr("src", "images/mouse2.jpg");
+    d3.select("#scrollyPhoto2").style("transform", "scale(3.0) translate(15%, 30%)");
+    d3.select("body").style("background-color", "#e8e5d8");
+    d3.select("#scrollyPhoto2").style("object-fit", "contain");
+})
+d3.select("#step2-2").on('stepin', function(e) {
+    d3.select("#scrollyPhoto2").attr("src", "images/mouse.jpg");
+    d3.select("#scrollyPhoto2").style("transform", "scale(1.0) translate(0%, 0%)");
+    d3.select("#scrollyPhoto2").style("object-fit", "contain");
+})
+d3.select("#step2-3").on('stepin', function(e) {
+    d3.select("#scrollyPhoto2").attr("src", "images/mouse1.jpg");
+    d3.select("#scrollyPhoto2").style("transform", "scale(1.0) translate(0%, 0%)");
+    d3.select("#scrollyPhoto2").style("object-fit", "contain");
+})
+d3.select("#step2-4").on('stepin', function(e) {
+    d3.select("#scrollyPhoto2").attr("src", "images/mouse1b.jpg");
+    d3.select("#scrollyPhoto2").style("transform", "scale(1.0) translate(0%, 0%)");
+    d3.select("#scrollyPhoto2").style("object-fit", "contain");
+})
+    </script>
+
+
+<!-- mobile phone warning modal -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isSmallScreen = window.innerWidth <= 900;
+
+    if (isSmallScreen) {
+      document.getElementById("deviceModal").style.display = "flex";
+    }
+
+    document
+      .getElementById("continueBtn")
+      .addEventListener("click", function () {
+        document.getElementById("deviceModal").style.display = "none";
+      });
+  });
+</script>
+
+  </body>
+</html>
